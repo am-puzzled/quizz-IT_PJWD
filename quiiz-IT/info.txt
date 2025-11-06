@@ -1,0 +1,26 @@
+
+-- Info on what will be needed for running the app
+
+    front end dependencies
+        
+        -- react
+        -- react-dom
+        -- react-router-dom
+        -- react-icons
+        -- tailwindcss
+        -- postcss
+        -- autoprefixer
+        -- Googlefonts --play and playball
+            ---npm install @fontsource/play @fontsource/playball
+
+    Backend dependencies
+        -- express
+        -- mongoose
+        -- cors
+        -- dotenv
+        -- (optional) nodemon
+        -- (optional) mongo Atlas
+
+
+
+    

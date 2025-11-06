@@ -38,6 +38,11 @@
         //combined flags
         const [wrongAndCorrectLogos, setWrongAndCorrectLogos] = useState([]);
 
+        
+        //for fetching
+        const apiUrl = import.meta.env.VITE_API_URL;
+
+
 
          useEffect(() => {
             const fetchTeams = async () => {
@@ -55,7 +60,7 @@
                 extractedTeams = JSON.parse(cached);
                 } else {
                 console.log("🔵 Fetching new data from API...");
-                const res = await fetch("http://localhost:5000/api/englishTeams");
+                const res = await fetch(`${apiUrl}/api/englishTeams`);
                 const data = await res.json();
 
                 extractedTeams = data.response
@@ -133,7 +138,7 @@
              console.log(`combined logos are:`,wrongAndCorrectLogos);
 
             setLoading(true);
-            fetch(`http://localhost:5000/api/teamImage/${encodeURIComponent(selectedTeamName)}`)
+            fetch(`${apiUrl}/api/teamImage/${encodeURIComponent(selectedTeamName)}`)
                 .then(res => res.json())
                 .then(data => {
                 if (data.image) {

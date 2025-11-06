@@ -48,7 +48,7 @@ export default function Tamati (){
 
             const interval = setInterval( async()=>{
                 try{
-                     const response = await fetch(`http://localhost:5000/get_user/${username}`);
+                     const response = await fetch(`${apiUrl}/get_user/${username}`);
                      if(!response.ok) return; // user not yet found
 
                      const data = await response.json();

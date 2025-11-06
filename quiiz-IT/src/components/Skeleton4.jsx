@@ -34,6 +34,11 @@
         //combined flags
         const [wrongAndCorrectCities, setWrongAndCorrectCities] = useState([]);
 
+            
+        //for fetching
+        const apiUrl = import.meta.env.VITE_API_URL;
+
+
 
         useEffect(() => {
             const fetchCountries = async () => {
@@ -80,7 +85,7 @@
                     setupGame(extractedCountries);
                 } else {
                     console.log("🔵 Fetching new data from API...");
-                    const res = await fetch("http://localhost:5000/api/countries");
+                    const res = await fetch(`${apiUrl}/api/countries`);
                     const data = await res.json();
 
                     // 4️⃣ Process and clean data
@@ -138,7 +143,7 @@
              console.log(`combined cities are:`,wrongAndCorrectCities);
 
             setLoading(true);
-            fetch(`http://localhost:5000/api/countryImage/${encodeURIComponent(selectedCountryName)}`)
+            fetch(`${apiUrl}/api/countryImage/${encodeURIComponent(selectedCountryName)}`)
                 .then(res => res.json())
                 .then(data => {
                 if (data.image) {

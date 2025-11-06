@@ -143,7 +143,7 @@ export default function Football() {
                 //save to mongoDB
                 const saveToMongo = async () => {
                     try{
-                        const response = await fetch('http://localhost:5000/save_history', {
+                        const response = await fetch(`${apiUrl}/save_history`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(assembledData)

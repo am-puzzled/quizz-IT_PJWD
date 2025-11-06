@@ -21,13 +21,18 @@
         const [clickedTeams, setClickedTeams] = useState({}); // track clicked buttons
         const [isAnswered, setIsAnswered] = useState(false); 
 
-         const [loading, setLoading] = useState(true);
+        const [loading, setLoading] = useState(true);
+
+            
+        //for fetching
+        const apiUrl = import.meta.env.VITE_API_URL;
+
         
 
         useEffect(()=>{
             
             // Fetch team data from backend
-            fetch("http://localhost:5000/api/bundesligateams")
+            fetch(`${apiUrl}/api/bundesligateams`)
             .then(res => res.json())
             .then(data => {
                 console.log("Data from backend:", data);
@@ -39,7 +44,7 @@
             
 
             // Fetch team wrong teams
-            fetch("http://localhost:5000/api/allteams")
+            fetch(`${apiUrl}/api/allteams`)
             .then(res => res.json())
             .then(data => {
                 console.log("Data from backend:", data);

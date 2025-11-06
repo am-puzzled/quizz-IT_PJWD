@@ -11,6 +11,9 @@ import { FaChevronDown } from "react-icons/fa";
 import { IoChevronBack } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
 
+//for fetching
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function Favs(){
 
     const navigate = useNavigate();
@@ -68,7 +71,7 @@ function Favs(){
              localStorage.setItem('storedFavs',JSON.stringify(updatedStoredFavs));
 
             // remove from backend
-            await fetch('http://localhost:5000/remove_favourite', {
+            await fetch(`${apiUrl}/remove_favourite`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

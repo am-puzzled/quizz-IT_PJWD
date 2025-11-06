@@ -21,6 +21,9 @@ function History(){
     const [heartClickedStates, setHeartClickedStates] = useState({}); //create json object with key values like {0:true 1:false 2:false}
     const [clickedChevron, setClickedChevron] = useState(null); //null= none is clicked yet
 
+    //for fetching
+    const apiUrl = import.meta.env.VITE_API_URL;
+
 
 
     //get history data
@@ -81,7 +84,7 @@ function History(){
              localStorage.setItem('storedFavs',JSON.stringify(newStoredFavs));
 
             // send to backend
-            await fetch('http://localhost:5000/add_favourite', {
+            await fetch(`${apiUrl}/add_favourite`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -99,7 +102,7 @@ function History(){
              localStorage.setItem('storedFavs',JSON.stringify(updatedStoredFavs));
 
             // remove from backend
-            await fetch('http://localhost:5000/remove_favourite', {
+            await fetch(`${apiUrl}/remove_favourite`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

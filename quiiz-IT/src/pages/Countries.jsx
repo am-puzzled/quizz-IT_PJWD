@@ -37,7 +37,10 @@ export default function Countries() {
   const [quizEnded, setQuizEnded] = useState(false);
 
   //for history purporses
-     const [historyData, setData] = useState([]);
+    const [historyData, setData] = useState([]);
+
+  //for fetching
+    const apiUrl = import.meta.env.VITE_API_URL;
     
 
 
@@ -152,7 +155,7 @@ export default function Countries() {
                 //save to mongoDB
                 const saveToMongo = async () => {
                     try{
-                        const response = await fetch('http://localhost:5000/save_history', {
+                        const response = await fetch(`${apiUrl}/save_history`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(assembledData)

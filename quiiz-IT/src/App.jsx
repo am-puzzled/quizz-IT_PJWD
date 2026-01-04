@@ -16,7 +16,7 @@ const Tamati = lazy (()=> import('./pages/Tamati.jsx'));
 const Football = lazy (()=> import('./pages/Football.jsx'));
 const Countries = lazy (()=> import('./pages/Countries.jsx'));
 //Import routes
-import {BrowserRouter,Routes,Route,Link } from 'react-router-dom';
+import {BrowserRouter,Routes,Route,Link } from 'react-router-dom'; 
 
 
 function App() {

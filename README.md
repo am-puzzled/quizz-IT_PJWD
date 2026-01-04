@@ -159,6 +159,7 @@ The frontend will run on: http://localhost:5173
   to respond due to server cold start.
 - API keys are required to fetch quiz data and images.
 - Make sure both frontend and backend are running at the same time for the application to work correctly.
+- The provided MONGO_URI points to a cloud MongoDB Atlas database with IP access open (0.0.0.0/0) so the application works out of the box.
 
 ---
 

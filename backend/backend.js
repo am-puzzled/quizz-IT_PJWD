@@ -17,7 +17,8 @@
     //fix cors issue
     const allowedOrigins = [
         'https://quizz-it-lan.netlify.app', // your frontend
-        'http://localhost:5173' // optional: local frontend during dev
+        'http://localhost:5173', // optional: local frontends during dev
+        'http://localhost:5174'
     ];
 
     app.use(cors({
@@ -213,12 +214,8 @@
       //fetch  englishteams from apisports--API
     app.get('/api/englishTeams', async (req,res)=>{
         try {
-            const response = await fetch("https://v3.football.api-sports.io/teams?league=39&season=2023", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-apisports-key":  apiKey,
-                }
+            const response = await fetch("https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=English%20Premier%20League", {
+                
              });
 
         const data = await response.json();
@@ -234,7 +231,13 @@
      //fetch countries data from  restcountries--API
     app.get('/api/countries', async (req,res)=>{
         try {
-            const response = await fetch('https://restcountries.com/v3.1/region/europe');
+            const response = await fetch('https://api.restcountries.com/countries/v5?region=Europe&limit=100',
+                    {
+                    headers: {
+                        Authorization: `Bearer ${process.env.restCountries_Key}`
+                    }
+                }
+            );
             const data = await response.json();
 
             // send the data to frontend

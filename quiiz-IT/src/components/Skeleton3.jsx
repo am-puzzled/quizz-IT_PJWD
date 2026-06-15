@@ -85,29 +85,29 @@
                 } else {
                     console.log("🔵 Fetching new data from API...");
                     const res = await fetch(`${apiUrl}/api/countries`);
-                    const data = await res.json();
+                    const result = await res.json();
 
-                    extractedCountries = data
-                    .sort(() => Math.random() - 0.5)
-                    .map((item) => ({
-                        name: item.name?.official || "Unknown",
-                        currency: item.currencies
-                        ? Object.values(item.currencies)
-                            .map((c) => c.name)
-                            .join(", ")
-                        : "N/A",
-                        city: item.capital?.[0] || "N/A",
-                        region: item.region || "N/A",
-                        area: item.area || "N/A",
-                        languages: item.languages
-                        ? Object.values(item.languages).join(", ")
-                        : "N/A",
-                        landlocked: item.landlocked || false,
-                        bordering_countries: item.borders || [],
-                        population: item.population || "N/A",
-                        flag: item.flags?.png || item.flags?.svg || "",
-                        maps: item.maps || {},
-                    }));
+                        const data = result?.data?.objects || [];
+
+                        extractedCountries = data
+                        .sort(() => Math.random() - 0.5)
+                        .map((item) => ({
+                            name: item.names?.official || item.names?.common || "Unknown",
+                            currency: item.currencies
+                            ? item.currencies.map((c) => c.name).join(", ")
+                            : "N/A",
+                            city: item.capitals?.[0]?.name || "N/A",
+                            region: item.region || "N/A",
+                            area: item.area?.kilometers || "N/A",
+                            languages: item.languages
+                            ? item.languages.map((lang) => lang.name).join(", ")
+                            : "N/A",
+                            landlocked: item.landlocked || false,
+                            bordering_countries: item.borders || [],
+                            population: item.population || "N/A",
+                            flag: item.flag?.url_png || item.flag?.url_svg || "",
+                            maps: item.links?.google_maps || "",
+                        }));
 
                     // Save fresh data to cache
                     localStorage.setItem("countriesData", JSON.stringify(extractedCountries));

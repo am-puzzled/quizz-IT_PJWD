@@ -63,22 +63,19 @@
                 const res = await fetch(`${apiUrl}/api/englishTeams`);
                 const data = await res.json();
 
-                extractedTeams = data.response
-                    .filter(
-                    (item) =>
-                        item.team.id !== 47 && item.team.id !== 39 && item.team.id !== 55
-                    )
+                extractedTeams =  data.teams
+                    .filter((item) => item.strLeague === "English Premier League")
                     .sort(() => Math.random() - 0.5)
                     .map((item) => ({
-                    id: item.team.id,
-                    name: item.team.name,
-                    country: item.team.country,
-                    city: item.venue.city,
-                    venue: item.venue.name,
-                    capacity: item.venue.capacity,
-                    founded: item.team.founded,
-                    logo: item.team.logo,
-                    image: item.venue.image,
+                        id: item.idTeam,
+                        name: item.strTeam,
+                        country: item.strCountry,
+                        city: item.strLocation || "N/A",
+                        venue: item.strStadium || "N/A",
+                        capacity: item.intStadiumCapacity || "N/A",
+                        founded: item.intFormedYear || "N/A",
+                        logo: item.strBadge || item.strLogo || "",
+                        image: item.strFanart1 || item.strBanner || item.strBadge || "",
                     }));
 
                 // Cache the result

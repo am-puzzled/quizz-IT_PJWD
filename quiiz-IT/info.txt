@@ -22,5 +22,10 @@
         -- (optional) mongo Atlas
 
 
+to improve
+--height on phones is a  little bid
+--when you share whilst on a page like tamati..it will throw an error
+--seo stuff
+
 
     

@@ -176,25 +176,27 @@
         }
     });
 
-       //fetch  bundesligaTeams from apisports--API
-    app.get('/api/bundesligaTeamsApisports', async (req,res)=>{
-        try {
-            const response = await fetch("https://v3.football.api-sports.io/teams?league=78&season=2023", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-apisports-key":  apiKey,
-                }
-             });
+    //This api is currently suspended
 
-        const data = await response.json();
-            // send the data to frontend
-        res.json(data);
-        } catch (error) {
-            console.error('Error fetching teams/data from api--sport :', error);
-            res.status(500).json({ error: 'Failed to fetch teams' });
-        }
-    });
+       //fetch  bundesligaTeams from apisports--API 
+    // app.get('/api/bundesligaTeamsApisports', async (req,res)=>{
+    //     try {
+    //         const response = await fetch("https://v3.football.api-sports.io/teams?league=78&season=2023", {
+    //             method: "GET",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 "x-apisports-key":  apiKey,
+    //             }
+    //          });
+
+    //     const data = await response.json();
+    //         // send the data to frontend
+    //     res.json(data);
+    //     } catch (error) {
+    //         console.error('Error fetching teams/data from api--sport :', error);
+    //         res.status(500).json({ error: 'Failed to fetch teams' });
+    //     }
+    // });
 
 
     //fetch eufa teams from the openligadb-API
@@ -211,7 +213,7 @@
     });
 
 
-      //fetch  englishteams from apisports--API
+      //fetch  englishteams from TheSportsDB -API
     app.get('/api/englishTeams', async (req,res)=>{
         try {
             const response = await fetch("https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=English%20Premier%20League", {

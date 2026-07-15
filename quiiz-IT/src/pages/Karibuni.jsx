@@ -84,7 +84,7 @@ export default function Karibuni(){
     return(
         <>
             {/* container */}
-            <div className="bg-bgMobile sm:bg-bgSm md:bg-bgMd lg:bg-bgLg  bg-cover bg-center animate-breathe-glow w-full h-screen flex justify-center items-end flex-wrap">
+            <div className="bg-bgMobile sm:bg-bgSm md:bg-bgMd lg:bg-bgLg  bg-cover bg-center animate-breathe-glow w-full h-[100dvh] flex justify-center items-end flex-wrap pb-[10px]">
 
                  {/* tips Button Container */}
                     <div className="w-full h-[6vh] flex justify-end items-center px-3 sm:px-6 shadow-sm">

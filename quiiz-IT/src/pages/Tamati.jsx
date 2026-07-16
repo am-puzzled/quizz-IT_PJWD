@@ -84,7 +84,7 @@ export default function Tamati (){
         <>
 
                     {/* container */}
-                    <div className="bg-bgMobile sm:bg-bgSm md:bg-bgMd lg:bg-bgLg  bg-cover bg-center w-full h-screen flex justify-center items-end flex-wrap animate-breathe-glow">
+                    <div className="bg-bgMobile sm:bg-bgSm md:bg-bgMd lg:bg-bgLg  bg-cover bg-center w-full h-[100dvh] flex justify-center items-end flex-wrap animate-breathe-glow pb-[10px]">
 
                          {/* quit Button Container */}
                             <div className="w-full h-[6vh] flex justify-end items-center px-3 sm:px-6 shadow-sm">

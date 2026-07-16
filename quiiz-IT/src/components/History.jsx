@@ -66,6 +66,14 @@ function History(){
 
     const toggleFavs = async (index)=>{
 
+        //change heart colour
+        setHeartClickedStates(
+            prev=>({
+                ...prev, //keep previous states the way they were
+                [index]:!prev[index] // if index was 0: false, !prev[0]=true
+            })
+        )
+
         //download favs we have from local storage
         const storedFavs = JSON.parse(localStorage.getItem('storedFavs')) || [];
 
@@ -112,15 +120,6 @@ function History(){
             });
          
         }
-
-
-         //change heart colour
-                setHeartClickedStates(
-                    prev=>({
-                        ...prev, //keep previous states the way they were
-                        [index]:!prev[index] // if index was 0: false, !prev[0]=true
-                    })
-                )
     };
        
 
